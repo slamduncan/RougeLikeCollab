@@ -6,7 +6,7 @@ public class Loader : MonoBehaviour {
 
     public GameObject gameManager;
 
-	// Use this for initialization
+	//This class is attached to the camera of the unity game. It is ran once to start/load the gameManager which then starts/loads everything else
 	void Awake () {
 		
         if(GameManager.instance == null)
