@@ -7,26 +7,30 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
     public BoardManager boardScript;
 
-
-    private int level = 1;
-
-
-	// Use this for initialization
+	//When the Game Starts
 	void Awake () {
 
+        //If the instance of GameManager has not been created yet
         if (instance = null)
             instance = this;
+        //If an instance of GameManager already exists destroy the newly created game object
         else if (instance != this)
             Destroy(gameObject);
-
+        
+        //When the gameManager loads in, it will not destroy itself
         DontDestroyOnLoad(gameObject);
+        
+        //Create an Object of boardManager so we may setup and run it
         boardScript = GetComponent<BoardManager>();
+        
+        //initialize the game
         InitGame();
 	}
 
     void InitGame()
     {
-        boardScript.SetupScene(level);
+        //Call the SetupScene method of the boardManager class
+        boardScript.SetupScene();
     }
 	
 	// Update is called once per frame
