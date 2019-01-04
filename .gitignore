@@ -32,3 +32,8 @@
 *.app
 RogueLikeCollab/Temp/
 RogueLikeCollab/.vs/
+RogueLikeCollab/Library/metadata/
+RogueLikeCollab/Library/PackageCache/
+RogueLikeCollab/Library/ShaderCache/
+RogueLikeCollab/Library/StateCache/
+RogueLikeCollab/Library/PlayerDataCache/
