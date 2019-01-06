@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
 	void Awake () {
 
         //If the instance of GameManager has not been created yet
-        if (instance = null)
+        if (instance == null)
             instance = this;
         //If an instance of GameManager already exists destroy the newly created game object
         else if (instance != this)

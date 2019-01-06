@@ -10,10 +10,13 @@ public class BoardManager : MonoBehaviour {
     //The length and width of the "dungeon"
     public int columns = 8; //X
     public int rows = 8; //Y
+    public int numOfEnemy = 1;
 
     //GameObjects that hold the sprite prefabs for their respective tiles. We drag and drop the prefabs in unity to specify which ones are to be used
     public GameObject wall;
     public GameObject floor;
+    public GameObject playerChar;
+    public GameObject enemy;
 
     //BoardHolder is a "container" used to keep the Heirarchy view for the Scene clean and contained. It will hold all of the walls and floors as "child" GameObjects
     private Transform boardHolder;
@@ -21,6 +24,8 @@ public class BoardManager : MonoBehaviour {
     //gridPositions is a master list that specifies all of the tile locations in the center of the "dungeon" for random walls to spawn. From (1,1) to (7,7).
     //This leaves a 1x1 path between outer wall and the randomly generated walls so no paths are blocked.
     private List<Vector3> gridPositions = new List<Vector3>();
+
+    private bool playerCreated = false;
 
     //We initialize the list with nested for loops, specifying the coordinates of each 
     private void InitializeList()
@@ -63,6 +68,14 @@ public class BoardManager : MonoBehaviour {
 
                 //Add the game object as a child of boardHolder
                 instance.transform.SetParent(boardHolder);
+                
+                // Created the player character on the first floor tile created.
+                if (!playerCreated && instance.tag.Contains("Floor"))
+                {
+                    playerCreated = true;
+                    playerChar = Instantiate(playerChar, instance.transform.position, Quaternion.identity) as GameObject;
+                    playerChar.transform.SetParent(boardHolder);
+                }
             }
         }
     }
@@ -78,9 +91,10 @@ public class BoardManager : MonoBehaviour {
     }
 
     //Takes an argument of the tile prefab you would like to place on the board and randomly places it.
-    private void LayoutObjectAtRandom(GameObject tile)
+    private void LayoutObjectAtRandom(GameObject tile, int objectCount = 0)
     {
-        int objectCount = Random.Range(5, 9);
+        if (objectCount == 0)
+            objectCount = Random.Range(5, 9);
 
         for (int i = 0; i < objectCount; i++)
         {
@@ -96,5 +110,6 @@ public class BoardManager : MonoBehaviour {
         InitializeList();
         BoardSetup();
         LayoutObjectAtRandom(wall);
+        LayoutObjectAtRandom(enemy, 1);
     }
 }

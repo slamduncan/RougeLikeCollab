@@ -5,10 +5,13 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public float speed = 2f;
+    public bool isPlayerCharacter = false;
     private Vector3 position;
     private Vector3 lastPosition;
     private Transform tr;
     private Rigidbody2D rb2d;
+    private GameManager gm;
+    private GameObject player;
 
 
     // Start is called before the first frame update
@@ -18,6 +21,9 @@ public class CharacterMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>(); 
         position = tr.position;
         lastPosition = tr.position;
+        gm = GameManager.instance;
+        player = gm.boardScript.playerChar;
+        
     }
 
     // Update is called once per frame
@@ -26,25 +32,40 @@ public class CharacterMovement : MonoBehaviour
         if (tr.position == position)
         {
             lastPosition = position;
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                position += Vector3.right;
-                Debug.Log("Right");
+            // Player Movement
+            if (this.tag.Contains("Player"))
+            {                
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    MoveRight();
+                }
+                else if (Input.GetKeyDown(KeyCode.A))
+                {
+                    MoveLeft();
+                }
+                else if (Input.GetKeyDown(KeyCode.W))
+                {
+                    MoveUp();
+                }
+                else if (Input.GetKeyDown(KeyCode.S))
+                {
+                    MoveDown();
+                }
             }
-            else if (Input.GetKeyDown(KeyCode.A))
+            // AI Movement
+            else if (this.tag.Contains("Enemy"))
             {
-                position += Vector3.left;
-                Debug.Log("Left");
-            }
-            else if (Input.GetKeyDown(KeyCode.W))
-            {
-                position += Vector3.up;
-                Debug.Log("Up");
-            }
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                position += Vector3.down;
-                Debug.Log("Down");
+                Vector3 playPos = player.transform.position;
+                Vector3 myPos = transform.position;
+                Vector3 dif = playPos - myPos;
+                if (dif.x > 0)
+                    MoveRight();
+                else if (dif.x < 0)
+                    MoveLeft();
+                else if (dif.y > 0)
+                    MoveUp();
+                else if (dif.y < 0)
+                    MoveDown();
             }
         }
 
@@ -64,8 +85,27 @@ public class CharacterMovement : MonoBehaviour
         this.CancelInvoke();
         transform.position = Vector3.MoveTowards(transform.position, lastPosition, Time.deltaTime * speed);
         position = lastPosition;
-        Debug.Log("COLLIDED!!!!!!");
-        Debug.Log(transform.position);
-        Debug.Log(lastPosition);
+        Debug.Log("COLLIDED!!!!!!");        
+    }
+
+    private void MoveRight()
+    {
+        position += Vector3.right;
+        Debug.Log("Right");
+    }
+    private void MoveLeft()
+    {
+        position += Vector3.left;
+        Debug.Log("Left");
+    }
+    private void MoveDown()
+    {
+        position += Vector3.down;
+        Debug.Log("Down");
+    }
+    private void MoveUp()
+    {
+        position += Vector3.up;
+        Debug.Log("Up");
     }
 }
