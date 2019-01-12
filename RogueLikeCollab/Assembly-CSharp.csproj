@@ -58,6 +58,8 @@
      <Compile Include="Assets\Scripts\Loader.cs" />
      <Compile Include="Assets\Scripts\Movement\CharacterMovement.cs" />
      <Compile Include="Assets\Scripts\Movement\EnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\Movement\HardEnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\Movement\MediumEnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/UnityProjects/RougeLike/RogueLikeCollab/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
