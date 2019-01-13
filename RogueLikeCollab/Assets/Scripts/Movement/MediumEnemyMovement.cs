@@ -13,8 +13,7 @@ public class MediumEnemyMovement : CharacterMovement
         DOWN
     }
     private int lastMoved = (int)lastMovedEnum.RIGHT;
-    private ContactFilter2D filter = new ContactFilter2D();
-    private RaycastHit2D[] hits = new RaycastHit2D[20];
+    
 
     override public Vector3 GetNextMovement()
     {
@@ -139,8 +138,5 @@ public class MediumEnemyMovement : CharacterMovement
         }
     }
 
-    protected int CheckHits(Vector2 direction)
-    {
-        return Physics2D.Raycast(this.transform.position, direction, filter, hits, 1.0f);
-    }
+    
 }

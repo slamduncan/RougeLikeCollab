@@ -64,4 +64,6 @@ MonoBehaviour:
   floor: {fileID: 1958316035900504, guid: 980431a6b58d329479017cd6c17ea6da, type: 3}
   playerChar: {fileID: 4980381326439080017, guid: b982c6aec506e504e8ad5be3b724819d,
     type: 3}
-  enemy: {fileID: 7407824323471800336, guid: b789f51b62b44474d827307e1b5066a1, type: 3}
+  enemy: {fileID: 6918899200189346244, guid: 49c31b429cb570c4586632e513b26173, type: 3}
+  enemy2: {fileID: 8969434687628267676, guid: b3bb653490e23204ea5c95ef74bafa7c, type: 3}
+  enemy3: {fileID: 7407824323471800336, guid: b789f51b62b44474d827307e1b5066a1, type: 3}

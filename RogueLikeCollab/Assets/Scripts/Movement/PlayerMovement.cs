@@ -24,4 +24,21 @@ public class PlayerMovement : CharacterMovement
         }
         return position;        
     }
+
+    override protected void OnCollisionEnter2D(Collision2D collision)
+    {
+        this.CancelInvoke();
+        // If collided with an enemy allow continuing movement if not moving into the Enemy square
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, lastPosition, Time.deltaTime * speed);
+            position = lastPosition;
+        }
+        
+        Debug.Log("COLLIDED!!!!!!");
+    }
 }

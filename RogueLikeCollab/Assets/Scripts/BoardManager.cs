@@ -17,6 +17,8 @@ public class BoardManager : MonoBehaviour {
     public GameObject floor;
     public GameObject playerChar;
     public GameObject enemy;
+    public GameObject enemy2;
+    public GameObject enemy3;
 
     //BoardHolder is a "container" used to keep the Heirarchy view for the Scene clean and contained. It will hold all of the walls and floors as "child" GameObjects
     private Transform boardHolder;
@@ -111,5 +113,7 @@ public class BoardManager : MonoBehaviour {
         BoardSetup();
         LayoutObjectAtRandom(wall);
         LayoutObjectAtRandom(enemy, 1);
+        LayoutObjectAtRandom(enemy2, 1);
+        LayoutObjectAtRandom(enemy3, 1);
     }
 }

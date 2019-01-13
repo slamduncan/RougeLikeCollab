@@ -13,6 +13,8 @@ public class CharacterMovement : MonoBehaviour
     protected GameManager gm;
     protected GameObject player;
     private bool changeDir;
+    protected ContactFilter2D filter = new ContactFilter2D();
+    protected RaycastHit2D[] hits = new RaycastHit2D[20];
 
 
     // Start is called before the first frame update
@@ -57,7 +59,7 @@ public class CharacterMovement : MonoBehaviour
         this.CancelInvoke();
         transform.position = Vector3.MoveTowards(transform.position, lastPosition, Time.deltaTime * speed);
         position = lastPosition;
-        Debug.Log("COLLIDED!!!!!!");        
+        Debug.Log("COLLIDED!!!!!!");
     }
 
     protected void MoveRight()
@@ -79,5 +81,10 @@ public class CharacterMovement : MonoBehaviour
     {
         position += Vector3.up;
         Debug.Log("Up");
+    }
+
+    protected int CheckHits(Vector2 direction)
+    {
+        return Physics2D.Raycast(this.transform.position, direction, filter, hits, 1.0f);
     }
 }
