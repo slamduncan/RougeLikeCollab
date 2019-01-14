@@ -37,3 +37,4 @@ RogueLikeCollab/Library/PackageCache/
 RogueLikeCollab/Library/ShaderCache/
 RogueLikeCollab/Library/StateCache/
 RogueLikeCollab/Library/PlayerDataCache/
+*.meta
