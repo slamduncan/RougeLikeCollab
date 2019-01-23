@@ -87,4 +87,9 @@ public class CharacterMovement : MonoBehaviour
     {
         return Physics2D.Raycast(this.transform.position, direction, filter, hits, 1.0f);
     }
+
+    protected int CheckHits(Vector2 direction, Vector2 start)
+    {
+        return Physics2D.Raycast(start, direction, filter, hits, 1.0f);
+    }
 }

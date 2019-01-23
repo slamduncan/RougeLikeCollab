@@ -50,6 +50,11 @@ public class HardEnemyMovement : CharacterMovement
                 return 0;
             }
         }
+
+        public override string ToString()
+        {
+            return Position.ToString() + "Cost:" + this.Cost.ToString() +"Val: " + this.GetValue().ToString();
+        }
     }
 
     override public Vector3 GetNextMovement()
@@ -96,6 +101,7 @@ public class HardEnemyMovement : CharacterMovement
             closedList.Add(eval);
             openList.RemoveAt(0);
             Vector3 playerDiff = eval.Position - playPos;
+            
             if (playerDiff.x > -1.0f && playerDiff.x < 1.0f && playerDiff.y < 1.0f && playerDiff.y > -1.0f) // Found player
             {
                 PosMove m1 = eval, m2 = start;
@@ -109,26 +115,34 @@ public class HardEnemyMovement : CharacterMovement
                 return m2.Position;
             }
             // Check for walls
-            bool skip = false;        
+            
             foreach (Vector3 m in moveList)
             {
-                
+                bool skip = false;
                 PosMove nextMove = new PosMove(eval.Cost + 1, eval.Position + m, playPos, eval);
-                num_hits = CheckHits(m);
+                num_hits = CheckHits(m, eval.Position);
                 if (num_hits > 1)
                 {
                     for (int i = 1; i < num_hits; i++)
                     {
                         RaycastHit2D hit = hits[i];
-                        if (!hit.collider.CompareTag("Player"))
+                        if (hit.collider.CompareTag("Player"))
+                        {
+                            
+                        }
+                        else if (hit.collider.CompareTag("Enemy"))
+                        {
+                            
+                        }
+                        else
                         {
                             skip = true;
                         }
                     }
                 }
                 // Make sure we're playing inside the game
-                if (nextMove.Position.x > gm.boardScript.columns || nextMove.Position.x < gm.boardScript.columns ||
-                    nextMove.Position.y > gm.boardScript.rows || nextMove.Position.y < gm.boardScript.rows)
+                if (nextMove.Position.x > gm.boardScript.columns || nextMove.Position.x < 0 ||
+                    nextMove.Position.y > gm.boardScript.rows || nextMove.Position.y < 0)
                     skip = true;
                 if (skip)
                 {
@@ -170,6 +184,20 @@ public class HardEnemyMovement : CharacterMovement
             }
         }
         return myPos;
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach(PosMove v in openList)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawCube(v.Position, new Vector3(.2f, .2f, .2f));            
+        }
+        foreach (PosMove v in closedList)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawCube(v.Position, new Vector3(.2f, .2f, .2f));
+        }
     }
 
     override protected void OnCollisionEnter2D(Collision2D collision)
