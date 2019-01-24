@@ -175,3 +175,7 @@ C:\Users\diltu\Documents\RougeLikeCollab\RogueLikeCollab\Temp\bin\Debug\UnityEng
 C:\Users\diltu\Documents\RougeLikeCollab\RogueLikeCollab\Temp\bin\Debug\UnityEngine.VFXModule.xml
 C:\Users\diltu\Documents\RougeLikeCollab\RogueLikeCollab\Temp\bin\Debug\UnityEngine.TestRunner.xml
 C:\Users\diltu\Documents\RougeLikeCollab\RogueLikeCollab\Temp\bin\Debug\nunit.framework.xml
+D:\UnityProjects\RougeLike\RogueLikeCollab\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\UnityProjects\RougeLike\RogueLikeCollab\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+D:\UnityProjects\RougeLike\RogueLikeCollab\obj\Debug\Assembly-CSharp.dll
+D:\UnityProjects\RougeLike\RogueLikeCollab\obj\Debug\Assembly-CSharp.pdb
