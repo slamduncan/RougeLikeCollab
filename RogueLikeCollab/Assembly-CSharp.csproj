@@ -62,13 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BoardManager.cs" />
+    <Compile Include="Assets\Scripts\BSP_BoardManager.cs" />
+    <Compile Include="Assets\Scripts\CharacterMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Loader.cs" />
-    <Compile Include="Assets\Scripts\Movement\CharacterMovement.cs" />
-    <Compile Include="Assets\Scripts\Movement\EnemyMovement.cs" />
-    <Compile Include="Assets\Scripts\Movement\HardEnemyMovement.cs" />
-    <Compile Include="Assets\Scripts\Movement\MediumEnemyMovement.cs" />
-    <Compile Include="Assets\Scripts\Movement\PlayerMovement.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/diltu/Documents/RougeLikeCollab/RogueLikeCollab/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
