@@ -38,3 +38,5 @@ RogueLikeCollab/Library/ShaderCache/
 RogueLikeCollab/Library/StateCache/
 RogueLikeCollab/Library/PlayerDataCache/
 *.meta
+*.cache
+RogueLikeCollab/ProjectSettings/VFXManager.asset
