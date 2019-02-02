@@ -5,21 +5,12 @@ using UnityEngine;
 //There are two random classes and we've specified using the Unity Engine one
 using Random = UnityEngine.Random;
 
-public class BoardManager : MonoBehaviour {
+public class BoardManager : AbstractBoardManager {
 
-    //The length and width of the "dungeon"
-    public int columns = 8; //X
-    public int rows = 8; //Y
+    
     public int numOfEnemy = 1;
 
-    //GameObjects that hold the sprite prefabs for their respective tiles. We drag and drop the prefabs in unity to specify which ones are to be used
-    public GameObject wall;
-    public GameObject floor;
-    public GameObject playerChar;
-    public GameObject enemy;
-    public GameObject enemy2;
-    public GameObject enemy3;
-
+    
     //BoardHolder is a "container" used to keep the Heirarchy view for the Scene clean and contained. It will hold all of the walls and floors as "child" GameObjects
     private Transform boardHolder;
 
@@ -36,9 +27,9 @@ public class BoardManager : MonoBehaviour {
         gridPositions.Clear();
 
         //Init the list from coordinates (1,1) to (columns-1, rows-1)
-        for(int x = 1; x < columns - 1; x++)
+        for(int x = 1; x < boardColumns - 1; x++)
         {
-            for(int y = 1; y < rows - 1; y++)
+            for(int y = 1; y < boardRows - 1; y++)
             {
                 gridPositions.Add(new Vector3(x, y, 0f));
             }
@@ -52,17 +43,17 @@ public class BoardManager : MonoBehaviour {
         boardHolder = new GameObject("Board").transform;
         
         //Fill the Dungeon
-        for(int x = -1; x < columns + 1; x++)
+        for(int x = -1; x < boardColumns + 1; x++)
         {
-            for(int y = -1; y < rows + 1; y++)
+            for(int y = -1; y < boardRows + 1; y++)
             {
                 //Default instantiation is a floor tile
-                GameObject toInstantiate = floor;
+                GameObject toInstantiate = floorTile;
 
                 //If the for loop is on a coordinate that is included in the outer wall, use a wall tile
-                if (x == -1 || x == columns || y == -1 || y == rows)
+                if (x == -1 || x == boardColumns || y == -1 || y == boardRows)
                 {
-                    toInstantiate = wall;
+                    toInstantiate = wallTile;
                 }
 
                 //Instantiate the selected coordinate with the determined tile. Use the x and y coordinate, 0f for z axis, and Quaternion.identity for no rotation. 
@@ -107,11 +98,14 @@ public class BoardManager : MonoBehaviour {
     }
 
     //This method is called by the GameManager and creates the board by setting up the empty dongeon and then filling it with random locations of wall tiles
-    public void SetupScene()
+    override public void Start()
     {
+        //The length and width of the "dungeon"
+        boardColumns = 8; //X
+        boardRows = 8; //Y
         InitializeList();
         BoardSetup();
-        LayoutObjectAtRandom(wall);
+        LayoutObjectAtRandom(wallTile);
         LayoutObjectAtRandom(enemy, 1);
         LayoutObjectAtRandom(enemy2, 1);
         LayoutObjectAtRandom(enemy3, 1);

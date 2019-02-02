@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BSP_BoardManager : MonoBehaviour
+public class BSP_BoardManager : AbstractBoardManager
 {
     //Modifiable Variables 
-    public int boardRows = 30, boardColumns = 30; //X,Y Board Size
+    
     public int minRoomSize, maxRoomSize;//The minimum and maximum a dungeon room can be
-    public GameObject floorTile;        //FloorTile Sprite Prefab Gameobject
-    public GameObject corridorTile;     //CorridorTile Sprite Prefab Gameobject
-    public GameObject wallTile;         //WallTile Sprite Prefab Gameobject
+    
+    private Vector3 playerStartPos; 
 
     private GameObject[,] boardPositions;  //X,Y array representing the board and containing the locations of the floor tiles
 
@@ -21,7 +20,7 @@ public class BSP_BoardManager : MonoBehaviour
      * 
      ********************************************/
     public class SubDungeon
-    {
+    {        
         public SubDungeon left, right;                  //The child branches for this node of the binary tree
         public Rect rect;                               //
         public Rect room = new Rect(-1, -1, 0, 0);      // i.e null. This is the room contained within this node of the binary tree
@@ -340,8 +339,30 @@ public class BSP_BoardManager : MonoBehaviour
         }
     }
 
-    void Start()
+    void InitPlayer()
     {
+        bool playerCreated = false;
+        for (int i = 0; i < boardRows; i++)
+        {
+            for (int j = 0; j < boardColumns; j++)
+            {
+                GameObject obj = boardPositions[i, j];
+                if (obj.CompareTag("Floor"))
+                {
+                    playerCreated = true;
+                    playerChar = Instantiate(playerChar, obj.transform.position, Quaternion.identity) as GameObject;
+                    break;
+                }
+            }
+            if (playerCreated)
+                break;
+        }
+    }
+
+    override public void Start()
+    {
+        boardRows = 30;
+        boardColumns = 30; //X,Y Board Size
         SubDungeon rootSubDungeon = new SubDungeon(new Rect(0, 0, boardRows, boardColumns));
         CreateBSP(rootSubDungeon);
         rootSubDungeon.CreateRoom();
@@ -350,6 +371,7 @@ public class BSP_BoardManager : MonoBehaviour
         DrawCorridors(rootSubDungeon);
         DrawRooms(rootSubDungeon);
         DrawWalls();
+        InitPlayer();
 
 
     }

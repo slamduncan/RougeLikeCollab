@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
-    public BoardManager boardScript;
+    public AbstractBoardManager boardScript;
 
 	//When the Game Starts
 	void Awake () {
@@ -19,9 +19,9 @@ public class GameManager : MonoBehaviour {
         
         //When the gameManager loads in, it will not destroy itself
         DontDestroyOnLoad(gameObject);
-        
+
         //Create an Object of boardManager so we may setup and run it
-        boardScript = GetComponent<BoardManager>();
+        //boardScript = GetComponent<AbstractBoardManager>();
         
         //initialize the game
         InitGame();
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
     void InitGame()
     {
         //Call the SetupScene method of the boardManager class
-        boardScript.SetupScene();
+        boardScript.Start(); 
     }
 	
 	// Update is called once per frame

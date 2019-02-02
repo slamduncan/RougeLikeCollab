@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -138,6 +139,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ce0824c246dab44a4ec1a6864b71fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 8231701217510628537, guid: e8265d8ddd0ab6d48844d001098df776,
+    type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -203,7 +218,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 589523744}
-  - component: {fileID: 589523743}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -211,27 +225,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &589523743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589523742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac331a16089164e41a8642bdacf839af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boardRows: 20
-  boardColumns: 20
-  minRoomSize: 8
-  maxRoomSize: 8
-  floorTile: {fileID: 3467136437940297417, guid: 39c22a1cb4b015f4eb74fc372b5ddc80,
-    type: 3}
-  corridorTile: {fileID: 3467136437940297417, guid: 39c22a1cb4b015f4eb74fc372b5ddc80,
-    type: 3}
-  wallTile: {fileID: 1882536217236156, guid: 6cb550573b71a2044897c40162d6c183, type: 3}
 --- !u!4 &589523744
 Transform:
   m_ObjectHideFlags: 0

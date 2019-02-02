@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AbstractBoardManager.cs" />
      <Compile Include="Assets\Scripts\BoardManager.cs" />
      <Compile Include="Assets\Scripts\BSP_BoardManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />

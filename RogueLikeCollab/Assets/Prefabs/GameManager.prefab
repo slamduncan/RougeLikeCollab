@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1244094288449798
+--- !u!1 &8231701217510628537
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4336126496037504}
-  - component: {fileID: 114373360095117288}
-  - component: {fileID: 114886472663065716}
+  - component: {fileID: 4382241876137668274}
+  - component: {fileID: 4479395762500729630}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -18,52 +17,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4336126496037504
+--- !u!4 &4382241876137668274
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244094288449798}
+  m_GameObject: {fileID: 8231701217510628537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7065061, y: -0.88781625, z: -0.0017592576}
+  m_LocalPosition: {x: 3.5, y: 3.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114373360095117288
+--- !u!114 &4479395762500729630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244094288449798}
+  m_GameObject: {fileID: 8231701217510628537}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2da8af0d5139de349aac8fb4182c9ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardScript: {fileID: 0}
---- !u!114 &114886472663065716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244094288449798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 980fdaedf927504469e772e560c60fc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  columns: 8
-  rows: 8
-  numOfEnemy: 1
-  wall: {fileID: 1882536217236156, guid: 6cb550573b71a2044897c40162d6c183, type: 3}
-  floor: {fileID: 1958316035900504, guid: 980431a6b58d329479017cd6c17ea6da, type: 3}
-  playerChar: {fileID: 4980381326439080017, guid: b982c6aec506e504e8ad5be3b724819d,
+  boardScript: {fileID: 5844311711380630040, guid: c764f7583163da542ad96072b74c3526,
     type: 3}
-  enemy: {fileID: 6918899200189346244, guid: 49c31b429cb570c4586632e513b26173, type: 3}
-  enemy2: {fileID: 8969434687628267676, guid: b3bb653490e23204ea5c95ef74bafa7c, type: 3}
-  enemy3: {fileID: 7407824323471800336, guid: b789f51b62b44474d827307e1b5066a1, type: 3}

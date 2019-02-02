@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9183446975519766052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 691839122725520887}
+  - component: {fileID: 5844311711380630040}
+  m_Layer: 0
+  m_Name: BoardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &691839122725520887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9183446975519766052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.5, y: 3.5, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5844311711380630040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9183446975519766052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac331a16089164e41a8642bdacf839af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerChar: {fileID: 4942148500271604388, guid: 44fba1ac758a35442b45bec1b0057c41,
+    type: 3}
+  enemy: {fileID: 8969434687628267676, guid: b3bb653490e23204ea5c95ef74bafa7c, type: 3}
+  enemy2: {fileID: 7407824323471800336, guid: b789f51b62b44474d827307e1b5066a1, type: 3}
+  enemy3: {fileID: 6918899200189346244, guid: 49c31b429cb570c4586632e513b26173, type: 3}
+  floorTile: {fileID: 3467136437940297417, guid: 39c22a1cb4b015f4eb74fc372b5ddc80,
+    type: 3}
+  corridorTile: {fileID: 1671197179454024225, guid: 114fe59bc8d60a34c8d61fd93fb4b0d6,
+    type: 3}
+  wallTile: {fileID: 1882536217236156, guid: 6cb550573b71a2044897c40162d6c183, type: 3}
+  boardRows: 30
+  boardColumns: 30
+  minRoomSize: 8
+  maxRoomSize: 8

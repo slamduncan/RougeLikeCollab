@@ -141,8 +141,8 @@ public class HardEnemyMovement : CharacterMovement
                     }
                 }
                 // Make sure we're playing inside the game
-                if (nextMove.Position.x > gm.boardScript.columns || nextMove.Position.x < 0 ||
-                    nextMove.Position.y > gm.boardScript.rows || nextMove.Position.y < 0)
+                if (nextMove.Position.x > gm.boardScript.boardColumns || nextMove.Position.x < 0 ||
+                    nextMove.Position.y > gm.boardScript.boardRows || nextMove.Position.y < 0)
                     skip = true;
                 if (skip)
                 {
